@@ -47,7 +47,7 @@ export default function ProfilePage() {
                     <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li>
-                    <span>My Profile  </span>
+                    <span> Profile  </span>
                 </li>
             </ul>
         </div>
