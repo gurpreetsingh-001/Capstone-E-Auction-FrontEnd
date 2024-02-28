@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext,useEffect, useState } from 'react'
 import Header from '../components/Header'
 import API from '../connection/connection';
+import UserContext from '../contexts/UserContext'
 
 import { useNavigate,Link } from 'react-router-dom';
 import axios from 'axios';
@@ -9,6 +10,8 @@ import SidebarDashboard from '../components/SidebarDashboard';
 
 export default function DashboardPage() {
  const navigate= useNavigate();
+ const Uctx=useContext(UserContext)
+
  const [userDetails, setuserDetails] = useState({})
  
 //  useEffect( async() => {
@@ -45,6 +48,7 @@ useEffect(() =>{
         navigate('/signin')
       }
       setuserDetails(response.data.user)
+      Uctx.setUsername(response.data.user);
     }
       
   }

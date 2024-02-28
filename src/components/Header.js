@@ -12,7 +12,7 @@ export default function Header() {
   return (
    <>
    <header>
-        <div className={` ${location.pathname=="/dashboard"?"bg-black header-top":"header-top"} `}>
+        <div className={` ${location.pathname=="/dashboard"?" header-top":"header-top"} `}>
             <div className="container">
                 <div className="header-top-wrapper">
                     <ul className="customer-support">

@@ -64,7 +64,7 @@ export default function ProfilePage() {
                             <div class="dash-pro-item mb-30 dashboard-widget">
                                 <div class="header">
                                     <h4 class="title">Personal Details</h4>
-                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
+                                   <Link to ="/profileupdate"> <span class="edit"><i class="flaticon-edit"></i> Edit</span></Link>
                                 </div>
                                 <ul class="dash-pro-body">
                                     <li>

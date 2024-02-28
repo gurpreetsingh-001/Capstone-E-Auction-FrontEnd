@@ -1,4 +1,4 @@
-import React, {useContext,useState} from 'react'
+import React, {useContext,useState,useEffect} from 'react'
 import axios from "axios"
 import { Link,Routes, Route, Navigate, useNavigate } from "react-router-dom"
 import API from '../connection/connection';
@@ -9,6 +9,33 @@ export default function Signin() {
     const [userdetail,setUserDetail] =useState({})
     const [error,setError]=useState(false)
     const[errorMsg,setErrorMsg] =useState('')
+
+    useEffect(() =>{
+        async function fetchdata(){
+            const token = localStorage.getItem("token");
+            
+            if(!token)
+            {
+                return; // Skip redirect if no token
+            }
+        
+            try {
+                const response = await axios.get(`${API}/isloggedin/`, {
+                    headers: {"Authorization": token}
+                });
+        
+                if(response.status === 200)
+                {
+                    navigate('/dashboard');
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        
+        fetchdata();
+        
+      },[])
 
   function handleChange(event){
          

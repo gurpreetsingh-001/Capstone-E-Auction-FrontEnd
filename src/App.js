@@ -9,6 +9,7 @@ import DashboardPage from './pages/DashboardPage';
 import ProfilePage from './pages/ProfilePage';
 import AddProduct from './pages/AddProduct';
 import ViewProduct from './pages/ViewProduct';
+import ProfileUpdate from './pages/ProfileUpdate';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route element={<Signup/>} path='/signup'/>
       <Route element={<AddProduct/>} path='/addproduct'/>
       <Route element={<ViewProduct/>} path='/viewproduct'/>
+      <Route element={<ProfileUpdate/>} path='/profileupdate'/>
     </Routes>
     {/* <Footer/> */}
      {/* <img src='/images/'/> */}

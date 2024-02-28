@@ -8,6 +8,7 @@ import axios from "axios"
 
 export default function AddProduct() {
   const[productData,setProductData]=useState({});
+  const[imageData,setImageData]=useState(null);
   const navigate =useNavigate();
   function handleChange(event){
     setProductData((prev)=>(
@@ -17,6 +18,10 @@ export default function AddProduct() {
        }
     ))
    }
+   function handlefile(event){
+    const imgfile = event.target.files[0];
+    setImageData(imgfile)
+   }
    async function PopulatetoDB(event){
     event.preventDefault()
      const token = localStorage.getItem("token");
@@ -25,11 +30,25 @@ export default function AddProduct() {
            {
              navigate('/signin')
            }
-          
-           const response = await axios.post(`${API}/product/addproduct`, productData, {
+          const formdata = new FormData();
+       //   console.log(productData + "prodt data");
+          formdata.append("prdimg",imageData)
+          Object.entries(productData)  //similar to map
+          .forEach(([key,value])=>{
+        //    console.log(key,value)
+            formdata.append(key,value)
+          })
+        // formdata.append("category",productData.category)
+        //   formdata.append("formproductname",productData.formproductname)
+        //   formdata.append("minbid",productData.minbid)
+        //   formdata.append("startdate",productData.startdate)
+        //   formdata.append("enddate",productData.enddate)
+       //   console.log(formdata + "formdata");
+           const response = await axios.post(`${API}/product/addproduct`, formdata, {
             headers: {
               Authorization: token,
-            },
+              'Content-Type': 'multipart/form-data',
+            }
           });
          
            if(response.status!=200)
@@ -102,7 +121,7 @@ export default function AddProduct() {
                         </div>
                         <div className="form-group mb-30">
                             <label for="prdimg"><i className="fas fa-lock"></i></label>
-                            <input type="text" id="prdimg" required name="prdimg" placeholder="Enter Product Image" onChange={handleChange} />
+                            <input type="file" id="prdimg" name="prdimg" required  placeholder="Enter Product Image" onChange={handlefile} />
                             
                         </div>
                         {/* <div className="form-group checkgroup mb-30">

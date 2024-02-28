@@ -9,7 +9,7 @@ export default function SidebarDashboard() {
   return (
     <>
     <div class="col-sm-10 col-md-7 col-lg-4">
-                    <div class="dashboard-widget mb-30 mb-lg-0">
+                    <div class="dashboard-widget mb-30 mb-lg-0 sticky-menu">
                         <div class="user">
                             <div class="thumb-area">
                                 <div class="thumb">
@@ -19,8 +19,8 @@ export default function SidebarDashboard() {
                                 <input type="file" id="profile-pic" class="d-none" />
                             </div>
                             <div class="content">
-                                <h5 class="title"><Link to="#0">Percy Reed</Link></h5>
-                                <span class="username"><Link to="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e68c898e88a6818b878f8ac885898b">[email&#160;protected]</Link></span>
+                                <h5 class="title"><Link to="#0">{userCtx.username.username}</Link></h5>
+                                <span class="username">{userCtx.username.email}</span>
                             </div>
                         </div>
                         <ul class="dashboard-menu">
