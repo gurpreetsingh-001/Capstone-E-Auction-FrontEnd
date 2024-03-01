@@ -2,35 +2,21 @@ import React, { useState } from 'react'
 import { useNavigate,Link } from 'react-router-dom';
 import API from '../connection/connection';
 
-export default function AuctionProductCard({productDetails}) {
+export default function AuctionProductCard({product}) {
     
-    const [imageUrl,setImageUrl]=useState("");
-    console.log(productDetails);
-    // const handleRetrieveImage = () => {
-    //     fetch(`/imageserve?filename=${productDetails.prdimg}`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.imageUrl) {
-    //                 setImageUrl(data.imageUrl);
-    //             } else {
-    //                 setImageUrl('');
-    //                 console.error('Image not found');
-    //             }
-    //         })
-    //         .catch(error => console.error('Error retrieving image:', error));
-    // }
-    // handleRetrieveImage();
+    // const [imageUrl,setImageUrl]=useState("");
+   
+  
   return (
-   <>
-   {productDetails?.map((product) => (
+ <>
+    {console.log(product.productname)}
     
-    <>
-    {console.log(product)}    
     
-    <div key={product._id} className="col-sm-10 col-md-6">
+    
+    <div  className="col-sm-10 col-md-6">
                                     <div className="auction-item-2" data-aos="zoom-out-up" data-aos-duration="1000">
                                         <div className="auction-thumb">
-                                            <img src={`http://localhost:3000/eauctionbackend/tmp/${product.prdimg}`} alt="car" />
+                                            <img src={`http://localhost:5000/products/${product.prdimg}`} alt="car" />
                                             <Link to="#0" className="rating"><i className="far fa-star"></i></Link>
                                             <Link to="#0" className="bid"><i className="flaticon-auction"></i></Link>
                                         </div>
@@ -59,8 +45,8 @@ export default function AuctionProductCard({productDetails}) {
                                         </div>
                                     </div>
                                 </div>
+                               
                                 </>
-    ))}
-   </>
+   
   )
 }

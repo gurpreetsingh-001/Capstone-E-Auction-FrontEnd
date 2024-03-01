@@ -1,10 +1,40 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import { Link,Routes, Route, Navigate, useNavigate,useLocation  } from "react-router-dom"
+import axios from "axios"
+import API from '../connection/connection';
 
 export default function Header() {
     let location = useLocation();
+    const[isloggedin,setIsLoggedIn]=useState(false)
     const navigate = useNavigate();
     console.log(location)
+    useEffect(() =>{
+        async function fetchdata(){
+            const token = localStorage.getItem("token");
+            
+            if(!token)
+            {
+                return; // Skip redirect if no token
+            }
+        
+            try {
+                const response = await axios.get(`${API}/isloggedin/`, {
+                    headers: {"Authorization": token}
+                });
+        
+                if(response.status === 200)
+                {
+                    setIsLoggedIn(true)
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        
+        fetchdata();
+        
+      },[])
+
     function handleLogout(){
         localStorage.removeItem("token");
         navigate('/signin')
@@ -56,7 +86,7 @@ export default function Header() {
                             
                         </li>
                         {
-                            location.pathname == "/"?
+                            location.pathname == "/" && !isloggedin ?
                             <>
                         <li>
                             <Link to="/signin">Signin</Link>
@@ -69,10 +99,15 @@ export default function Header() {
                             
                         </li>
                         </> : 
-                        <li>
-
+                       <> <li>
+                            
+                            <Link to="/dashboard">My Account</Link>
+                        
+                            
+                        </li>
+                                 <li>
                         <button onClick={handleLogout}>Logout</button>    
-                    </li>
+                    </li></>
                         }
                         
                         {/* <li>

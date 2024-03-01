@@ -1,11 +1,37 @@
 import React, {useContext, useEffect, useState } from 'react'
 import { useNavigate,Navigate,Link } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
+import API from '../connection/connection';
+import axios from 'axios';
 
 export default function SidebarDashboard() {
     const navigate= useNavigate();
     
-    const userCtx= useContext(UserContext)
+    //const userCtx= useContext(UserContext)
+    const [userDetails, setuserDetails] = useState({})
+ 
+    useEffect(() =>{
+     async function fetchdata(){
+      const token = localStorage.getItem("token");
+          if(!token)
+        {
+          navigate('/signin')
+          
+        }else{
+          const response  =await axios.get(`${API}/dashboard/`,{
+          headers:{"Authorization":token}
+        })
+        if(response.status!=200)
+        {
+          navigate('/signin')
+        }
+        setuserDetails(response.data.user)
+       }
+    }
+    fetchdata();
+   },[])
+
+
   return (
     <>
     <div class="col-sm-10 col-md-7 col-lg-4">
@@ -19,8 +45,8 @@ export default function SidebarDashboard() {
                                 <input type="file" id="profile-pic" class="d-none" />
                             </div>
                             <div class="content">
-                                <h5 class="title"><Link to="#0">{userCtx.username.username}</Link></h5>
-                                <span class="username">{userCtx.username.email}</span>
+                                <h5 class="title"><Link to="#0">{userDetails.username}</Link></h5>
+                                <span class="username">{userDetails.email}</span>
                             </div>
                         </div>
                         <ul class="dashboard-menu">
