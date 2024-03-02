@@ -83,7 +83,7 @@ export default function AuctionPrdHome() {
                                     <span className="total-bids">30 Bids</span>
                                 </div> */}
                                 <div className="text-center">
-                                    <a href="#0" className="custom-button">Submit a bid</a>
+                                    <Link to="/productauction/222" className="custom-button">Submit a bid</Link>
                                 </div>
                             </div>
                         </div>

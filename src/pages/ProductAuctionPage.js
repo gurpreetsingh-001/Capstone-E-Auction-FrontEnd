@@ -1,12 +1,15 @@
 import React from 'react'
 import Header from '../components/Header'
-import { Link } from 'react-router-dom'
+import { Link, useParams} from 'react-router-dom'
 
 export default function ProductAuctionPage() {
+
+    const { id } = useParams();
+    console.log(id)
   return (
     <>
     <Header/>
-{/* <Profile user={userDetails}/> */}
+
 <div className="hero-section style-2 pb-lg-400">
         <div className="container">
             <ul className="breadcrumb">
@@ -127,7 +130,7 @@ export default function ProductAuctionPage() {
                         </a>
                     </li>
                     <li>
-                        <a href="#history"  class="active"  data-toggle="tab">
+                        <a href="#history"  className="active"  data-toggle="tab">
                             <div className="thumb">
                                 <img src="./assets/images/product/tab3.png" alt="product"/>
                             </div>

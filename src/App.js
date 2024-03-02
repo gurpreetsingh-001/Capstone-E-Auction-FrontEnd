@@ -27,7 +27,7 @@ function App() {
       <Route element={<AddProduct/>} path='/addproduct'/>
       <Route element={<ViewProduct/>} path='/viewproduct'/>
       <Route element={<ProfileUpdate/>} path='/profileupdate'/>
-      <Route element={<ProductAuctionPage/>} path='/productauction'/>
+      <Route path='/productauction/:id' element={<ProductAuctionPage/>} />
     </Routes>
     {/* <Footer/> */}
      {/* <img src='/images/'/> */}
