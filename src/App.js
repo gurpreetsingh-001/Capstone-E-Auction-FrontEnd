@@ -10,6 +10,7 @@ import ProfilePage from './pages/ProfilePage';
 import AddProduct from './pages/AddProduct';
 import ViewProduct from './pages/ViewProduct';
 import ProfileUpdate from './pages/ProfileUpdate';
+import ProductAuctionPage from './pages/ProductAuctionPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route element={<AddProduct/>} path='/addproduct'/>
       <Route element={<ViewProduct/>} path='/viewproduct'/>
       <Route element={<ProfileUpdate/>} path='/profileupdate'/>
+      <Route element={<ProductAuctionPage/>} path='/productauction'/>
     </Routes>
     {/* <Footer/> */}
      {/* <img src='/images/'/> */}
