@@ -11,6 +11,7 @@ import AddProduct from './pages/AddProduct';
 import ViewProduct from './pages/ViewProduct';
 import ProfileUpdate from './pages/ProfileUpdate';
 import ProductAuctionPage from './pages/ProductAuctionPage';
+import Temp from './pages/Temp';
 
 function App() {
   return (
@@ -27,7 +28,10 @@ function App() {
       <Route element={<AddProduct/>} path='/addproduct'/>
       <Route element={<ViewProduct/>} path='/viewproduct'/>
       <Route element={<ProfileUpdate/>} path='/profileupdate'/>
-      <Route path='/productauction/:id' element={<ProductAuctionPage/>} />
+      <Route path='/productauction'>
+        <Route path='abc' Component={ProductAuctionPage} />
+        </Route>
+
     </Routes>
     {/* <Footer/> */}
      {/* <img src='/images/'/> */}

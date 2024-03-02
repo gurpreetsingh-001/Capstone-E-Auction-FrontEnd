@@ -77,7 +77,7 @@ export default function Header() {
                 <div className="header-wrapper">
                     <div className="logo">
                         <Link to="/">
-                            <img src="./assets/images/logo/logo.png" alt="logo" />
+                            <img src="http://localhost:5000/assets/images/logo/logo.png" alt="logo" />
                         </Link>
                     </div>
                     <ul className="menu ml-auto">
@@ -86,7 +86,7 @@ export default function Header() {
                             
                         </li>
                         {
-                            location.pathname == "/" && !isloggedin ?
+                             !isloggedin ?
                             <>
                         <li>
                             <Link to="/signin">Signin</Link>

@@ -24,20 +24,23 @@ export default function ProductAuctionPage() {
                 </li>
             </ul>
         </div>
-        <div className=" bg_img hero-bg bottom_center ccc" ></div>
+        
+        <div className=" bg_img hero-bg bottom_center ccc" style={{ zIndex: -550 }} ></div>
     </div>
     <section className="product-details padding-bottom mt--440 mt-lg--440 ">
         <div className="container">
-            <div className="product-details-slider-top-wrapper">
-                <div className="product-details-slider owl-theme owl-carousel" id="sync1">
+        <img src="http://localhost:5000/assets/images/product/product1.png" alt="product" style={{ width: '100%' }}/>
+
+             {/* <div className="product-details-slider-top-wrapper">
+                <div className="product-details-slider" id="sync1">
                     <div className="slide-top-item">
                         <div className="slide-inner">
-                            <img src="./assets/images/product/product1.png" alt="product"/>
+                            <img src="http://localhost:5000/assets/images/product/product1.png" alt="product"/>
                         </div>
                     </div>
                    
                 </div>
-            </div>
+            </div>  */}
             
             <div className="row mt-40-60-80">
                 <div className="col-lg-8">
@@ -66,7 +69,7 @@ export default function ProductAuctionPage() {
                         <div className="product-bid-area">
                             <form className="product-bid-form">
                                 <div className="search-icon">
-                                    <img src="./assets/images/product/search-icon.png" alt="product"/>
+                                    <img src="http://localhost:5000/assets/images/product/search-icon.png" alt="product"/>
                                 </div>
                                 <input type="text" placeholder="Enter you bid amount"/>
                                 <button type="submit" className="custom-button">Submit a bid</button>
@@ -85,7 +88,7 @@ export default function ProductAuctionPage() {
                             <div className="side-counter-area">
                                 <div className="side-counter-item">
                                     <div className="thumb">
-                                        <img src="./assets/images/product/icon1.png" alt="product"/>
+                                        <img src="http://localhost:5000/assets/images/product/icon1.png" alt="product"/>
                                     </div>
                                     <div className="content">
                                         <h3 className="count-title1"><span className="counter1">61</span></h3>
@@ -94,7 +97,7 @@ export default function ProductAuctionPage() {
                                 </div>
                                 <div className="side-counter-item">
                                     <div className="thumb">
-                                        <img src="./assets/images/product/icon2.png" alt="product"/>
+                                        <img src="http://localhost:5000/assets/images/product/icon2.png" alt="product"/>
                                     </div>
                                     <div className="content">
                                         <h3 className="count-title1"><span className="counter1">203</span></h3>
@@ -103,7 +106,7 @@ export default function ProductAuctionPage() {
                                 </div>
                                 <div className="side-counter-item">
                                     <div className="thumb">
-                                        <img src="./assets/images/product/icon3.png" alt="product"/>
+                                        <img src="http://localhost:5000/assets/images/product/icon3.png" alt="product"/>
                                     </div>
                                     <div className="content">
                                         <h3 className="count-title1"><span className="counter1">82</span></h3>
@@ -124,7 +127,7 @@ export default function ProductAuctionPage() {
                     <li>
                         <a href="#delevery"  data-toggle="tab">
                             <div className="thumb">
-                                <img src="./assets/images/product/tab2.png" alt="product"/>
+                                <img src="http://localhost:5000/assets/images/product/tab2.png" alt="product"/>
                             </div>
                             <div className="content">Delivery Options</div>
                         </a>
@@ -132,7 +135,7 @@ export default function ProductAuctionPage() {
                     <li>
                         <a href="#history"  className="active"  data-toggle="tab">
                             <div className="thumb">
-                                <img src="./assets/images/product/tab3.png" alt="product"/>
+                                <img src="http://localhost:5000/assets/images/product/tab3.png" alt="product"/>
                             </div>
                             <div className="content">Bid History (36)</div>
                         </a>
@@ -199,7 +202,7 @@ export default function ProductAuctionPage() {
                                             <td data-history="bidder">
                                                 <div className="user-info">
                                                     <div className="thumb">
-                                                        <img src="./assets/images/history/01.png" alt="history"/>
+                                                        <img src="http://localhost:5000/assets/images/history/01.png" alt="history"/>
                                                     </div>
                                                     <div className="content">
                                                         Moses Watts
@@ -214,7 +217,7 @@ export default function ProductAuctionPage() {
                                             <td data-history="bidder">
                                                 <div className="user-info">
                                                     <div className="thumb">
-                                                        <img src="./assets/images/history/01.png" alt="history"/>
+                                                        <img src="http://localhost:5000/assets/images/history/01.png" alt="history"/>
                                                     </div>
                                                     <div className="content">
                                                         Pat Powell
@@ -241,7 +244,7 @@ export default function ProductAuctionPage() {
                         <div className="faq-wrapper">
                             <div className="faq-item">
                                 <div className="faq-title">
-                                    <img src="./assets/css/img/faq.png" alt="css"/><span className="title">How to start bidding?</span><span className="right-icon"></span>
+                                    <img src="http://localhost:5000/assets/css/img/faq.png" alt="css"/><span className="title">How to start bidding?</span><span className="right-icon"></span>
                                 </div>
                                 <div className="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -249,7 +252,7 @@ export default function ProductAuctionPage() {
                             </div>
                             <div className="faq-item">
                                 <div className="faq-title">
-                                    <img src="./assets/css/img/faq.png" alt="css"/><span className="title">Security Deposit / Bidding Power </span><span className="right-icon"></span>
+                                    <img src="http://localhost:5000/assets/css/img/faq.png" alt="css"/><span className="title">Security Deposit / Bidding Power </span><span className="right-icon"></span>
                                 </div>
                                 <div className="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -257,7 +260,7 @@ export default function ProductAuctionPage() {
                             </div>
                             <div className="faq-item">
                                 <div className="faq-title">
-                                    <img src="./assets/css/img/faq.png" alt="css"/><span className="title">Delivery time to the destination port </span><span className="right-icon"></span>
+                                    <img src="http://localhost:5000/assets/css/img/faq.png" alt="css"/><span className="title">Delivery time to the destination port </span><span className="right-icon"></span>
                                 </div>
                                 <div className="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -265,7 +268,7 @@ export default function ProductAuctionPage() {
                             </div>
                             <div className="faq-item">
                                 <div className="faq-title">
-                                    <img src="./assets/css/img/faq.png" alt="css"/><span className="title">How to register to bid in an auction?</span><span className="right-icon"></span>
+                                    <img src="http://localhost:5000/assets/css/img/faq.png" alt="css"/><span className="title">How to register to bid in an auction?</span><span className="right-icon"></span>
                                 </div>
                                 <div className="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -273,7 +276,7 @@ export default function ProductAuctionPage() {
                             </div>
                             <div className="faq-item open active">
                                 <div className="faq-title">
-                                    <img src="./assets/css/img/faq.png" alt="css"/><span className="title">How will I know if my bid was successful?</span><span className="right-icon"></span>
+                                    <img src="http://localhost:5000/assets/css/img/faq.png" alt="css"/><span className="title">How will I know if my bid was successful?</span><span className="right-icon"></span>
                                 </div>
                                 <div className="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -281,7 +284,7 @@ export default function ProductAuctionPage() {
                             </div>
                             <div className="faq-item">
                                 <div className="faq-title">
-                                    <img src="./assets/css/img/faq.png" alt="css"/><span className="title">What happens if I bid on the wrong lot?</span><span className="right-icon"></span>
+                                    <img src="http://localhost:5000/assets/css/img/faq.png" alt="css"/><span className="title">What happens if I bid on the wrong lot?</span><span className="right-icon"></span>
                                 </div>
                                 <div className="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>

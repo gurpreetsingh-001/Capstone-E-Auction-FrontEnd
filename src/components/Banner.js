@@ -23,13 +23,13 @@ export default function Banner() {
                 </div>
                 <div className="d-none d-lg-block col-lg-6">
                     <div className="banner-thumb-2">
-                        <img src="./assets/images/banner/banner-1.png" alt="banner" />
+                        <img src="http://localhost:5000/assets/images/banner/banner-1.png" alt="banner" />
                     </div>
                 </div>
             </div>
         </div>
         <div className="banner-shape d-none d-lg-block">
-            <img src="./assets/css/img/banner-shape.png" alt="css" />
+            <img src="http://localhost:5000/assets/css/img/banner-shape.png" alt="css" />
         </div>
     </section>
     </>

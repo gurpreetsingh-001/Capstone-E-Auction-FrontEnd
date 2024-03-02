@@ -24,12 +24,12 @@ export default function AuctionPrdHome() {
   return (
    <>
     <section className="car-auction-section padding-bottom padding-top pos-rel oh">
-            <div className="car-bg"><img src="./assets/images/auction/car/car-bg.png" alt="car" /></div>
+            <div className="car-bg"><img src="http://localhost:5000/assets/images/auction/car/car-bg.png" alt="car" /></div>
             <div className="container">
                 <div className="section-header-3">
                     <div className="left">
                         <div className="thumb">
-                            <img src="./assets/images/header-icons/car-1.png" alt="header-icons" />
+                            <img src="http://localhost:5000/assets/images/header-icons/car-1.png" alt="header-icons" />
                         </div>
                         <div className="title-area">
                             <h2 className="title">Auction Products</h2>
@@ -46,7 +46,7 @@ export default function AuctionPrdHome() {
                      <div className="col-sm-10 col-md-6 col-lg-4">
                         <div className="auction-item-2" >
                             <div className="auction-thumb">
-                                <a href="./product-details.html"><img src="./assets/images/auction/car/auction-2.jpg" alt="car" /></a>
+                                <a href="./product-details.html"><img src="http://localhost:5000/assets/images/auction/car/auction-2.jpg" alt="car" /></a>
                                 <a href="#0" className="rating"><i className="far fa-star"></i></a>
                                 <a href="#0" className="bid"><i className="flaticon-auction"></i></a>
                             </div>
@@ -83,7 +83,7 @@ export default function AuctionPrdHome() {
                                     <span className="total-bids">30 Bids</span>
                                 </div> */}
                                 <div className="text-center">
-                                    <Link to="/productauction/222" className="custom-button">Submit a bid</Link>
+                                    <Link to="/productauction/abc" className="custom-button">Submit a bid</Link>
                                 </div>
                             </div>
                         </div>

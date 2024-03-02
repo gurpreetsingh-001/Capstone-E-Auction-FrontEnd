@@ -88,7 +88,7 @@ useEffect(() =>{
                             <div class="col-md-4 col-sm-6">
                                 <div class="dashboard-item">
                                     <div class="thumb">
-                                        <img src="./assets/images/dashboard/01.png" alt="dashboard" />
+                                        <img src="http://localhost:5000/assets/images/dashboard/01.png" alt="dashboard" />
                                     </div>
                                     <div class="content">
                                         <h2 class="title"><span class="counter">80</span></h2>
@@ -99,7 +99,7 @@ useEffect(() =>{
                             <div class="col-md-4 col-sm-6">
                                 <div class="dashboard-item">
                                     <div class="thumb">
-                                        <img src="./assets/images/dashboard/02.png" alt="dashboard" />
+                                        <img src="http://localhost:5000/assets/images/dashboard/02.png" alt="dashboard" />
                                     </div>
                                     <div class="content">
                                         <h2 class="title"><span class="counter">15</span></h2>
@@ -110,7 +110,7 @@ useEffect(() =>{
                             <div class="col-md-4 col-sm-6">
                                 <div class="dashboard-item">
                                     <div class="thumb">
-                                        <img src="./assets/images/dashboard/03.png" alt="dashboard" />
+                                        <img src="http://localhost:5000/assets/images/dashboard/03.png" alt="dashboard" />
                                     </div>
                                     <div class="content">
                                         <h2 class="title"><span class="counter">115</span></h2>

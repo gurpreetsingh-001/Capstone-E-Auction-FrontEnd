@@ -19,27 +19,27 @@ export default function Category() {
                 <div className="m--15">
                     <div className="browse-slider owl-theme owl-carousel">
                         <a href="#0" className="browse-item">
-                            <img src="./assets/images/auction/01.png" alt="auction" />
+                            <img src="http://localhost:5000/assets/images/auction/01.png" alt="auction" />
                             <span className="info">Vehicles</span>
                         </a>
                         <a href="#0" className="browse-item">
-                            <img src="./assets/images/auction/02.png" alt="auction" />
+                            <img src="http://localhost:5000/assets/images/auction/02.png" alt="auction" />
                             <span className="info">Jewelry</span>
                         </a>
                         <a href="#0" className="browse-item">
-                            <img src="./assets/images/auction/03.png" alt="auction" />
+                            <img src="http://localhost:5000/assets/images/auction/03.png" alt="auction" />
                             <span className="info">Watches</span>
                         </a>
                         <a href="#0" className="browse-item">
-                            <img src="./assets/images/auction/04.png" alt="auction" />
+                            <img src="http://localhost:5000/assets/images/auction/04.png" alt="auction" />
                             <span className="info">Electronics</span>
                         </a>
                         <a href="#0" className="browse-item">
-                            <img src="./assets/images/auction/05.png" alt="auction" />
+                            <img src="http://localhost:5000/assets/images/auction/05.png" alt="auction" />
                             <span className="info">Sports</span>
                         </a>
                         <a href="#0" className="browse-item">
-                            <img src="./assets/images/auction/06.png" alt="auction" />
+                            <img src="http://localhost:5000/assets/images/auction/06.png" alt="auction" />
                             <span className="info">Real Estate</span>
                         </a>
                     </div>
