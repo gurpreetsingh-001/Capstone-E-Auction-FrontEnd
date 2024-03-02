@@ -32,73 +32,10 @@ export default function ProductAuctionPage() {
                             <img src="./assets/images/product/product1.png" alt="product"/>
                         </div>
                     </div>
-                    <div className="slide-top-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/product2.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-top-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/product3.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-top-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/product4.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-top-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/product5.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-top-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/product6.png" alt="product"/>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
-            <div className="product-details-slider-wrapper">
-                <div className="product-bottom-slider owl-theme owl-carousel" id="sync2">
-                    <div className="slide-bottom-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/01.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-bottom-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/02.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-bottom-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/03.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-bottom-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/04.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-bottom-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/05.png" alt="product"/>
-                        </div>
-                    </div>
-                    <div className="slide-bottom-item">
-                        <div className="slide-inner">
-                            <img src="./assets/images/product/06.png" alt="product"/>
-                        </div>
-                    </div>
-                </div>
-                <span className="det-prev det-nav">
-                    <i className="fas fa-angle-left"></i>
-                </span>
-                <span className="det-next det-nav active">
-                    <i className="fas fa-angle-right"></i>
-                </span>
-            </div>
+            
             <div className="row mt-40-60-80">
                 <div className="col-lg-8">
                     <div className="product-details-content">
