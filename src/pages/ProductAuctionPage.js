@@ -72,6 +72,30 @@ async function submitBid(event){
     }
  }
 
+ useEffect(() =>{
+    async function fetchdata1(){
+     const token = localStorage.getItem("token");
+         if(!token)
+       {
+         navigate('/signin')
+         
+       }else{
+         const response  =await axios.get(`${API}/auction/details/${id}`,{
+         headers:{"Authorization":token}
+       })
+       if(response.status!=200)
+       {
+         navigate('/signin')
+       }
+        console.log(response.data)
+     //  setuserDetails(response.data.user)
+       
+     }
+       
+   }
+   fetchdata1();
+  },[])
+ 
       
      
 //console.log(productdetail.productname)
