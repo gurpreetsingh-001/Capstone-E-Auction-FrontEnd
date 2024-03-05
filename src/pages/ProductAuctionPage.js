@@ -1,11 +1,48 @@
-import React from 'react'
+import React, { useContext,useEffect, useState } from 'react'
+import API from '../connection/connection';
+import axios from 'axios';
 import Header from '../components/Header'
-import { Link, useParams} from 'react-router-dom'
+import { Link,useNavigate,useLocation, useParams} from 'react-router-dom'
 
 export default function ProductAuctionPage() {
-
+    let location = useLocation();
     const { id } = useParams();
     console.log(id)
+    const navigate= useNavigate();
+    const [productdetail, setProductDetail] = useState([])
+    useEffect(() =>{
+        async function fetchdata(){
+            const token = localStorage.getItem("token");
+            if(!token)
+          {
+            console.log(location.pathname);
+            navigate('/signin', { replace: true, state: {redirecturl:location.pathname} })
+            // state ->location path, is user is not logged in
+            
+          }else{
+
+        
+             const response  =await axios.get(`${API}/product/viewproductbyid/${id}`,{
+                headers:{"Authorization":token}
+              })
+              if(response.status!=200)
+              {
+                navigate('/signin')
+              }
+
+           console.log(response.data.ResProductviewbyID)
+           setProductDetail(response.data.ResProductviewbyID[0])
+          
+          }
+           
+       }
+       fetchdata();
+      },[])
+      
+     
+//console.log(productdetail.productname)
+
+
   return (
     <>
     <Header/>
@@ -29,7 +66,7 @@ export default function ProductAuctionPage() {
     </div>
     <section className="product-details padding-bottom mt--440 mt-lg--440 ">
         <div className="container">
-        <img src="http://localhost:5000/assets/images/product/product1.png" alt="product" style={{ width: '100%' }}/>
+         <img src={`http://localhost:5000/products/${productdetail.prdimg}`} alt="product" style={{ width: '100%' }}/> 
 
              {/* <div className="product-details-slider-top-wrapper">
                 <div className="product-details-slider" id="sync1">
@@ -46,16 +83,16 @@ export default function ProductAuctionPage() {
                 <div className="col-lg-8">
                     <div className="product-details-content">
                         <div className="product-details-header">
-                            <h2 className="title">The Breeze Zodiac IX</h2>
+                            <h2 className="title">{productdetail.productname}</h2>
                             <ul>
-                                <li>Listing ID: 14076242</li>
-                                <li>Item #: 7300-3356862</li>
+                                <li>Category: {productdetail.category}</li>
+                               
                             </ul>
                         </div>
                         <ul className="price-table mb-30">
                             <li className="header">
-                                <h5 className="current">Current Price</h5>
-                                <h3 className="price">US $700.00</h3>
+                                <h5 className="current">Min Bid Price</h5>
+                                <h3 className="price">₹ {productdetail.minbid}</h3>
                             </li>
                             <li>
                                 <span className="details">Buyer's Premium</span>

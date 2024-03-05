@@ -1,15 +1,16 @@
-import React, {useContext,useState,useEffect} from 'react'
+import React, {useContext,useState, useEffect} from 'react'
 import axios from "axios"
-import { Link,Routes, Route, Navigate, useNavigate } from "react-router-dom"
+import { Link,Routes, Route,Navigate, useLocation, useNavigate } from "react-router-dom"
 import API from '../connection/connection';
 import UserContext from '../contexts/UserContext'
 export default function Signin() {
     const Uctx=useContext(UserContext)
     const navigate =useNavigate()
+    const {state}= useLocation()
     const [userdetail,setUserDetail] =useState({})
     const [error,setError]=useState(false)
     const[errorMsg,setErrorMsg] =useState('')
-
+//console.log(state.redirecturl + "   redirect url");
     useEffect(() =>{
         async function fetchdata(){
             const token = localStorage.getItem("token");
@@ -27,6 +28,7 @@ export default function Signin() {
                 if(response.status === 200)
                 {
                     navigate('/dashboard');
+                    
                 }
             } catch (error) {
                 console.log(error);
@@ -37,7 +39,10 @@ export default function Signin() {
         
       },[])
 
-  function handleChange(event){
+   
+ 
+ 
+      function handleChange(event){
          
          setUserDetail((prev)=>(
              {
@@ -57,7 +62,17 @@ export default function Signin() {
         localStorage.setItem("token", response.data.token);
         console.log(response.data.message)
         Uctx.setIsAuthenticated(true);
-        navigate('/dashboard')
+      //  console.log(state );
+                //    console.log(state.redirecturl);
+                    if(state !=null && state.redirecturl!="" )
+                    {
+                        navigate(state.redirecturl)
+                        
+                    } 
+                    else{
+                    navigate('/dashboard');
+                    }
+      //  navigate('/dashboard')
 
         
       }

@@ -36,7 +36,7 @@ export default function AuctionPrdHome() {
                             <p>Live Auction Products</p>
                         </div>
                     </div>
-                    {/* <a href="#0" className="normal-button">View All</a> */}
+                    {/* <Link to="#0" className="normal-button">View All</Link> */}
                 </div>
                 <div className="row justify-content-center mb-30-none">
                    
@@ -46,13 +46,13 @@ export default function AuctionPrdHome() {
                      <div className="col-sm-10 col-md-6 col-lg-4">
                         <div className="auction-item-2" >
                             <div className="auction-thumb">
-                                <a href="./product-details.html"><img src="http://localhost:5000/assets/images/auction/car/auction-2.jpg" alt="car" /></a>
-                                <a href="#0" className="rating"><i className="far fa-star"></i></a>
-                                <a href="#0" className="bid"><i className="flaticon-auction"></i></a>
+                                <Link to={`/productauction/${product._id}`}><img src={`http://localhost:5000/products/${product.prdimg}`} alt="car" /></Link>
+                                <Link to={`/productauction/${product._id}`} className="rating"><i className="far fa-star"></i></Link>
+                                <Link to={`/productauction/${product._id}`} className="bid"><i className="flaticon-auction"></i></Link>
                             </div>
                             <div className="auction-content">
                                 <h6 className="title">
-                                    <a href="./product-details.html">{product.productname} / {product.category}</a>
+                                    <Link to="./product-details.html">{product.productname} / {product.category}</Link>
                                 </h6>
                                 <div className="bid-area">
                                     <div className="bid-amount">
@@ -83,7 +83,7 @@ export default function AuctionPrdHome() {
                                     <span className="total-bids">30 Bids</span>
                                 </div> */}
                                 <div className="text-center">
-                                    <Link to="/productauction/abc" className="custom-button">Submit a bid</Link>
+                                <Link to={`/productauction/${product._id}`} className="custom-button">Submit a bid</Link>
                                 </div>
                             </div>
                         </div>

@@ -29,7 +29,7 @@ function App() {
       <Route element={<ViewProduct/>} path='/viewproduct'/>
       <Route element={<ProfileUpdate/>} path='/profileupdate'/>
       <Route path='/productauction'>
-        <Route path='abc' Component={ProductAuctionPage} />
+        <Route path=':id' Component={ProductAuctionPage} />
         </Route>
 
     </Routes>
