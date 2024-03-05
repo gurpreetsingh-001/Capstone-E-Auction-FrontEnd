@@ -1,4 +1,4 @@
-import React, { useContext,useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import API from '../connection/connection';
 import axios from 'axios';
 import Header from '../components/Header'
@@ -8,8 +8,10 @@ export default function ProductAuctionPage() {
     let location = useLocation();
     const { id } = useParams();
     console.log(id)
+    const token = localStorage.getItem("token");
     const navigate= useNavigate();
     const [productdetail, setProductDetail] = useState([])
+    const[AuctionBiddata,setAuctionBiddata]=useState([]);
     useEffect(() =>{
         async function fetchdata(){
             const token = localStorage.getItem("token");
@@ -38,6 +40,38 @@ export default function ProductAuctionPage() {
        }
        fetchdata();
       },[])
+
+      
+        
+      function handleChange(event){
+        
+        setAuctionBiddata((prev)=>(
+           {
+               ...prev,
+               [event.target.name]:event.target.value
+           }
+        ))
+       }
+      console.log(AuctionBiddata)
+      console.log(id)
+     
+//console.log(productdetail.productname)
+async function submitBid(event){
+    event.preventDefault()
+    console.log(`${API}/auction/${id}`);
+    const response =await axios.post(`${API}/auction/${id}`,AuctionBiddata, {
+        headers: {
+          Authorization: token,
+        }
+      })
+    console.log(response);
+    if(response.status===200){
+      
+        console.log("working fine");
+       //navigate('/')
+    }
+ }
+
       
      
 //console.log(productdetail.productname)
@@ -95,12 +129,13 @@ export default function ProductAuctionPage() {
                                 <h3 className="price">₹ {productdetail.minbid}</h3>
                             </li>
                             <li>
-                                <span className="details">Buyer's Premium</span>
-                                <h5 className="info">10.00%</h5>
+                                <span className="details">Start Date</span>
+                                <h5 className="info">{new Date(productdetail.startdate).toLocaleDateString('en-GB')}</h5>
                             </li>
+                           
                             <li>
-                                <span className="details">Bid Increment (US)</span>
-                                <h5 className="info">$50.00</h5>
+                                <span className="details">End Date</span>
+                                <h5 className="info">{new Date(productdetail.enddate).toLocaleDateString('en-GB')}</h5>
                             </li>
                         </ul>
                         <div className="product-bid-area">
@@ -108,8 +143,8 @@ export default function ProductAuctionPage() {
                                 <div className="search-icon">
                                     <img src="http://localhost:5000/assets/images/product/search-icon.png" alt="product"/>
                                 </div>
-                                <input type="text" placeholder="Enter you bid amount"/>
-                                <button type="submit" className="custom-button">Submit a bid</button>
+                                <input type="text" name="bidAmount" placeholder="Enter you bid amount" onChange={handleChange}/>
+                                <button type="submit" className="custom-button" onClick={submitBid}>Submit a bid</button>
                             </form>
                         </div>
                        

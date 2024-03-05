@@ -49,17 +49,7 @@ export default function Header() {
                         <li className="cmn-support-text">
                             <a href="#0" className="mr-3"><i className="fas fa-phone-alt"></i><span className="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
                         </li>
-                        <li className="customer-cupport-lang">
-                            <i className="fas fa-globe"></i>
-                            <select name="language" className="select-bar">
-                                <option value="en">En</option>
-                                <option value="Bn">Bn</option>
-                                <option value="Rs">Rs</option>
-                                <option value="Us">Us</option>
-                                <option value="Pk">Pk</option>
-                                <option value="Arg">Arg</option>
-                            </select>
-                        </li>
+                      
                     </ul>
                     <ul className="cart-button-area">
                         <li>
