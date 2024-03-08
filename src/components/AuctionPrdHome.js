@@ -42,8 +42,8 @@ export default function AuctionPrdHome() {
                    
                 {productDetails?.map((product) => (
                     
-                    <>
-                     <div className="col-sm-10 col-md-6 col-lg-4">
+                    
+                     <div className="col-sm-10 col-md-6 col-lg-4" key={product._id}>
                         <div className="auction-item-2" >
                             <div className="auction-thumb">
                                 <Link to={`/productauction/${product._id}`}><img src={`http://localhost:5000/products/${product.prdimg}`} alt="car" /></Link>
@@ -88,7 +88,7 @@ export default function AuctionPrdHome() {
                             </div>
                         </div>
                     </div>
-                    </>
+                    
                     ))}
                     
                 </div>

@@ -40,24 +40,24 @@ export default function Signup() {
                    
                     <form className="login-form">
                     <div className="form-group mb-30">
-                            <label for="login-username"><i className="far fa-user"></i></label>
+                            <label htmlFor="login-username"><i className="far fa-user"></i></label>
                             <input type="text" id="username" name="username" placeholder="Username" onChange={handleChange} />
                         </div>
                         <div className="form-group mb-30">
-                            <label for="login-mobile"><i className="far fa-phone"></i></label>
+                            <label htmlFor="login-mobile"><i className="far fa-phone"></i></label>
                             <input type="text" id="mobile" name="mobile" placeholder="Mobile" onChange={handleChange} />
                         </div>
                         <div className="form-group mb-30">
-                            <label for="login-email"><i className="far fa-envelope"></i></label>
+                            <label htmlFor="login-email"><i className="far fa-envelope"></i></label>
                             <input type="text" id="email" name ="email" placeholder="Email Address" onChange={handleChange} />
                         </div>
                         <div className="form-group mb-30">
-                            <label for="login-pass"><i className="fas fa-lock"></i></label>
+                            <label htmlFor="login-pass"><i className="fas fa-lock"></i></label>
                             <input type="password" id="password" name="password" placeholder="Password" onChange={handleChange} />
                             <span className="pass-type"><i className="fas fa-eye"></i></span>
                         </div>
                         {/* <div className="form-group checkgroup mb-30">
-                            <input type="checkbox" name="terms" id="check" /><label for="check">I agree with Terms of Use</label>
+                            <input type="checkbox" name="terms" id="check" /><label htmlFor="check">I agree with Terms of Use</label>
                         </div> */}
                         <div className="form-group mb-0">
                             <button type="submit" className="custom-button" onClick={PopulatetoDB}>Register</button>

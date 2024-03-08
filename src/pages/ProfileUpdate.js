@@ -70,9 +70,9 @@ function handleChange(event){
 
 <Header/>
 {/* <Profile user={userDetails}/> */}
-<div class="hero-section style-2 pb-lg-400">
-        <div class="container">
-            <ul class="breadcrumb">
+<div className="hero-section style-2 pb-lg-400">
+        <div className="container">
+            <ul className="breadcrumb">
                 <li>
                     <Link to="/">Home</Link>
                 </li>
@@ -84,38 +84,38 @@ function handleChange(event){
                 </li>
             </ul>
         </div>
-        <div class=" bg_img hero-bg bottom_center ccc" ></div>
+        <div className=" bg_img hero-bg bottom_center ccc" ></div>
     </div>
 
-    <section class="dashboard-section padding-bottom mt--240 mt-lg--325 pos-rel">
-        <div class="container">
-            <div class="row justify-content-center">
+    <section className="dashboard-section padding-bottom mt--240 mt-lg--325 pos-rel">
+        <div className="container">
+            <div className="row justify-content-center">
                 <SidebarDashboard/>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="dash-pro-item mb-30 dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Update Profile</h4>
+                <div className="col-lg-8">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="dash-pro-item mb-30 dashboard-widget">
+                                <div className="header">
+                                    <h4 className="title">Update Profile</h4>
                                   
                                 </div>
                                
                                 <form className="login-form">
                     <div className="form-group mb-30">
-                            <label for="login-username"><i className="far fa-user"></i></label>
+                            <label htmlFor="login-username"><i className="far fa-user"></i></label>
                             <input type="text" id="username" name="username" placeholder="Username" value={uname} onChange={handleChange} />
                         </div>
                         <div className="form-group mb-30">
-                            <label for="login-mobile"><i className="far fa-phone"></i></label>
+                            <label htmlFor="login-mobile"><i className="far fa-phone"></i></label>
                             <input type="text" id="mobile" name="mobile" placeholder="Mobile" value={mob} onChange={handleChange} />
                         </div>
                         <div className="form-group mb-30">
-                            <label for="login-email"><i className="far fa-envelope"></i></label>
+                            <label htmlFor="login-email"><i className="far fa-envelope"></i></label>
                             <input type="text" id="email" name ="email" placeholder="Email Address" value={emai} onChange={handleChange} />
                         </div>
                         
                         {/* <div className="form-group checkgroup mb-30">
-                            <input type="checkbox" name="terms" id="check" /><label for="check">I agree with Terms of Use</label>
+                            <input type="checkbox" name="terms" id="check" /><label htmlFor="check">I agree with Terms of Use</label>
                         </div> */}
                         <div className="form-group mb-0">
                             <button type="submit" className="custom-button" onClick={PopulatetoDB}>Update</button>

@@ -37,9 +37,9 @@ export default function ProfilePage() {
 
 <Header/>
 {/* <Profile user={userDetails}/> */}
-<div class="hero-section style-2 pb-lg-400">
-        <div class="container">
-            <ul class="breadcrumb">
+<div className="hero-section style-2 pb-lg-400">
+        <div className="container">
+            <ul className="breadcrumb">
                 <li>
                     <Link to="/">Home</Link>
                 </li>
@@ -51,48 +51,48 @@ export default function ProfilePage() {
                 </li>
             </ul>
         </div>
-        <div class=" bg_img hero-bg bottom_center ccc" ></div>
+        <div className=" bg_img hero-bg bottom_center ccc" ></div>
     </div>
 
-    <section class="dashboard-section padding-bottom mt--240 mt-lg--325 pos-rel">
-        <div class="container">
-            <div class="row justify-content-center">
+    <section className="dashboard-section padding-bottom mt--240 mt-lg--325 pos-rel">
+        <div className="container">
+            <div className="row justify-content-center">
                 <SidebarDashboard/>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="dash-pro-item mb-30 dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Personal Details</h4>
-                                   <Link to ="/profileupdate"> <span class="edit"><i class="flaticon-edit"></i> Edit</span></Link>
+                <div className="col-lg-8">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="dash-pro-item mb-30 dashboard-widget">
+                                <div className="header">
+                                    <h4 className="title">Personal Details</h4>
+                                   <Link to ="/profileupdate"> <span className="edit"><i className="flaticon-edit"></i> Edit</span></Link>
                                 </div>
-                                <ul class="dash-pro-body">
+                                <ul className="dash-pro-body">
                                     <li>
-                                        <div class="info-name">Name</div>
-                                        <div class="info-value">{userDetails.username}</div>
+                                        <div className="info-name">Name</div>
+                                        <div className="info-value">{userDetails.username}</div>
                                     </li>
                                     <li>
-                                        <div class="info-name">Email</div>
-                                        <div class="info-value">{userDetails.email}</div>
+                                        <div className="info-name">Email</div>
+                                        <div className="info-value">{userDetails.email}</div>
                                     </li>
                                     <li>
-                                        <div class="info-name">Mobile</div>
-                                        <div class="info-value">{userDetails.mobile}</div>
+                                        <div className="info-name">Mobile</div>
+                                        <div className="info-value">{userDetails.mobile}</div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         
-                        <div class="col-12">
-                            <div class="dash-pro-item dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Security</h4>
-                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
+                        <div className="col-12">
+                            <div className="dash-pro-item dashboard-widget">
+                                <div className="header">
+                                    <h4 className="title">Security</h4>
+                                    <span className="edit"><i className="flaticon-edit"></i> Edit</span>
                                 </div>
-                                <ul class="dash-pro-body">
+                                <ul className="dash-pro-body">
                                     <li>
-                                        <div class="info-name">Password</div>
-                                        <div class="info-value">xxxxxxxxxxxxxxxx</div>
+                                        <div className="info-name">Password</div>
+                                        <div className="info-value">xxxxxxxxxxxxxxxx</div>
                                     </li>
                                 </ul>
                             </div>

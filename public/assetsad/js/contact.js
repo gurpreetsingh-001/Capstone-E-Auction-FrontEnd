@@ -19,7 +19,7 @@
                     },
                     success: function (data) {
                         $('#contact_form').children('.email-success').remove();
-                        $('#contact_form').prepend('<span class="alert alert-success email-success">' + data + '</span>');
+                        $('#contact_form').prepend('<span className="alert alert-success email-success">' + data + '</span>');
                         $('#name').val('');
                         $('#email').val('');
                         $('#message').val('');
@@ -31,7 +31,7 @@
                 });
             } else {
                 $('#contact_form').children('.email-success').remove();
-                $('#contact_form').prepend('<span class="alert alert-danger email-success">All Fields are Required.</span>');
+                $('#contact_form').prepend('<span className="alert alert-danger email-success">All Fields are Required.</span>');
                 $('.email-success').fadeOut(3000);
             }
 

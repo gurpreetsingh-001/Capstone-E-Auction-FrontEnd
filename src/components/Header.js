@@ -7,7 +7,7 @@ export default function Header() {
     let location = useLocation();
     const[isloggedin,setIsLoggedIn]=useState(false)
     const navigate = useNavigate();
-    console.log(location)
+   // console.log(location)
     useEffect(() =>{
         async function fetchdata(){
             const token = localStorage.getItem("token");
@@ -96,7 +96,7 @@ export default function Header() {
                             
                         </li>
                                  <li>
-                        <button onClick={handleLogout}>Logout</button>    
+                        <span className='logout' onClick={handleLogout}>Logout</span>    
                     </li></>
                         }
                         
