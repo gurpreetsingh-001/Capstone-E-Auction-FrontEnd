@@ -16,12 +16,13 @@ export default function ProductAuctionPage() {
     const [productdetail, setProductDetail] = useState([])
     const [AuctionBiddata, setAuctionBiddata] = useState([]);
     const [userauctiondetails, setuserAuctionDetails] = useState([]);
+    const [displaydatas, setDisplayData] = useState({});
     const[updated,setUpdated]=useState(false);
     useEffect(() => {
         async function fetchdata() {
             const token = localStorage.getItem("token");
             if (!token) {
-             //   console.log(location.pathname);
+                console.log(location.pathname);
                 navigate('/signin', { replace: true, state: { redirecturl: location.pathname } })
                 // state ->location path, is user is not logged in
 
@@ -31,8 +32,8 @@ export default function ProductAuctionPage() {
                 const response = await axios.get(`${API}/product/viewproductbyid/${id}`, {
                     headers: { "Authorization": token }
                 })
-                if (response.status != 200) {
-                    navigate('/signin')
+                if (response.status === 401 || response.status === 404) {
+                    navigate('/signin', { replace: true, state: { redirecturl: location.pathname } })
                 }
 
                 //console.log(response.data.ResProductviewbyID)
@@ -62,6 +63,11 @@ export default function ProductAuctionPage() {
     async function submitBid(event) {
         event.preventDefault()
       //  console.log(`${API}/auction/${id}`);
+      if(AuctionBiddata.bidAmount<productdetail.minbid)
+      {
+        alert("Entered AMount is less then min bid amount");
+        return
+      }
         const response = await axios.post(`${API}/auction/${id}`, AuctionBiddata, {
             headers: {
                 Authorization: token,
@@ -84,19 +90,22 @@ export default function ProductAuctionPage() {
            // console.log(id + "IDadasdas");
 
             if (!token) {
-                navigate('/signin')
+                navigate('/signin', { replace: true, state: { redirecturl: location.pathname } })
 
             } else {
                 const response = await axios.get(`${API}/auction/details/${id}`, {
                     headers: { "Authorization": token }
                 })
                 //  console.log(response);
-                if (response.status != 200) {
-                    navigate('/signin')
+                if (response.status === 401 || response.status === 404) {
+                    navigate('/signin', { replace: true, state: { redirecturl: location.pathname } })
                 }
 
                 console.log("Data UPDATED")
                 setuserAuctionDetails(response.data.usersDetails)
+                setDisplayData(response.data.displaydata)
+                console.log(response.data.displaydata);
+                console.log(response.data);
 
             }
 
@@ -198,25 +207,17 @@ export default function ProductAuctionPage() {
                                                 <img src="http://localhost:5000/assets/images/product/icon1.png" alt="product" />
                                             </div>
                                             <div className="content">
-                                                <h3 className="count-title1"><span className="counter1">61</span></h3>
-                                                <p>Active Bidders</p>
+                                                <h3 className="count-title1"><span className="counter1">{displaydatas.highest}</span></h3>
+                                                <p>Highest Bid</p>
                                             </div>
                                         </div>
-                                        <div className="side-counter-item">
-                                            <div className="thumb">
-                                                <img src="http://localhost:5000/assets/images/product/icon2.png" alt="product" />
-                                            </div>
-                                            <div className="content">
-                                                <h3 className="count-title1"><span className="counter1">203</span></h3>
-                                                <p>Watching</p>
-                                            </div>
-                                        </div>
+                                        
                                         <div className="side-counter-item">
                                             <div className="thumb">
                                                 <img src="http://localhost:5000/assets/images/product/icon3.png" alt="product" />
                                             </div>
                                             <div className="content">
-                                                <h3 className="count-title1"><span className="counter1">82</span></h3>
+                                                <h3 className="count-title1"><span className="counter1">{displaydatas.count}</span></h3>
                                                 <p>Total Bids</p>
                                             </div>
                                         </div>

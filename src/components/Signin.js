@@ -10,7 +10,8 @@ export default function Signin() {
     const [userdetail,setUserDetail] =useState({})
     const [error,setError]=useState(false)
     const[errorMsg,setErrorMsg] =useState('')
-//console.log(state.redirecturl + "   redirect url");
+console.log(state + "   redirect url");
+console.log(useLocation())
     useEffect(() =>{
         async function fetchdata(){
             const token = localStorage.getItem("token");
@@ -27,7 +28,7 @@ export default function Signin() {
         
                 if(response.status === 200)
                 {
-                    navigate('/dashboard');
+                    navigate('/dashboardabcd');
                     
                 }
             } catch (error) {
@@ -62,8 +63,8 @@ export default function Signin() {
         localStorage.setItem("token", response.data.token);
         console.log(response.data.message)
         Uctx.setIsAuthenticated(true);
-      //  console.log(state );
-                //    console.log(state.redirecturl);
+        console.log(state );
+                   console.log(state.redirecturl);
                     if(state !=null && state.redirecturl!="" )
                     {
                         navigate(state.redirecturl)
