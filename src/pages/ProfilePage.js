@@ -87,7 +87,7 @@ export default function ProfilePage() {
                             <div className="dash-pro-item dashboard-widget">
                                 <div className="header">
                                     <h4 className="title">Security</h4>
-                                    <span className="edit"><i className="flaticon-edit"></i> Edit</span>
+                                    <Link to ="/passwordupdate"> <span className="edit"><i className="flaticon-edit"></i> Edit</span></Link>
                                 </div>
                                 <ul className="dash-pro-body">
                                     <li>
