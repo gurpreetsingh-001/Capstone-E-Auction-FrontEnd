@@ -13,6 +13,9 @@ import ProfileUpdate from './pages/ProfileUpdate';
 import ProductAuctionPage from './pages/ProductAuctionPage';
 import Temp from './pages/Temp';
 import PasswordUpdate from './pages/PasswordUpdate';
+import AuctionDetails from './pages/AuctionDetails';
+import Success from './pages/Success';
+import Failure from './pages/Failure'
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
       <Route element={<ViewProduct/>} path='/viewproduct'/>
       <Route element={<ProfileUpdate/>} path='/profileupdate'/>
       <Route element={<PasswordUpdate/>} path='/passwordupdate'/>
+      <Route element={<AuctionDetails/>} path='/auctiondetails'/>
+      <Route element={<Success/>} path='/success'/>
+      <Route element={<Failure/>} path='/failure'/>
       <Route path='/productauction'>
         <Route path=':id' Component={ProductAuctionPage} />
         </Route>

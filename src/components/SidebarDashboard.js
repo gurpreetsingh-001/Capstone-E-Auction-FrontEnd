@@ -92,14 +92,14 @@ export default function SidebarDashboard() {
               <Link to="/viewproduct"><i className="flaticon-best-seller"></i>View Product</Link>
             </li>
             <li>
-              <Link to="notifications.html"><i className="flaticon-alarm"></i>My Alerts</Link>
+              <Link to="/auctiondetails"><i className="flaticon-alarm"></i>Auction Details</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="my-favorites.html"><i className="flaticon-star"></i>My Favorites</Link>
             </li>
             <li>
               <Link to="referral.html"><i className="flaticon-shake-hand"></i>Referrals</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

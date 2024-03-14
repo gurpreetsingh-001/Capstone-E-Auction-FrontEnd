@@ -13,6 +13,7 @@ export default function DashboardPage() {
  const Uctx=useContext(UserContext)
 
  const [userDetails, setuserDetails] = useState({})
+ const [alldetails, setallDetails] = useState({})
  
 //  useEffect( async() => {
 //   const token = localStorage.getItem("token");
@@ -47,6 +48,7 @@ useEffect(() =>{
       {
         navigate('/signin')
       }
+     setallDetails(response.data)
       setuserDetails(response.data.user)
       Uctx.setUsername(response.data.user);
     }
@@ -54,6 +56,7 @@ useEffect(() =>{
   }
   fetchdata();
  },[])
+ 
  
   return (
    <>
@@ -91,8 +94,8 @@ useEffect(() =>{
                                         <img src="http://localhost:5000/assets/images/dashboard/01.png" alt="dashboard" />
                                     </div>
                                     <div className="content">
-                                        <h2 className="title"><span className="counter">80</span></h2>
-                                        <h6 className="info">Active Bids</h6>
+                                        <h2 className="title"><span className="counter">{alldetails.ActiveBids}</span></h2>
+                                        <h6 className="info">Bids Placed</h6>
                                     </div>
                                 </div>
                             </div>
@@ -102,12 +105,12 @@ useEffect(() =>{
                                         <img src="http://localhost:5000/assets/images/dashboard/02.png" alt="dashboard" />
                                     </div>
                                     <div className="content">
-                                        <h2 className="title"><span className="counter">15</span></h2>
-                                        <h6 className="info">Items Won</h6>
+                                        <h2 className="title"><span className="counter">{alldetails.Wonbids}</span></h2>
+                                        <h6 className="info">Won Bids</h6>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4 col-sm-6">
+                            {/* <div className="col-md-4 col-sm-6">
                                 <div className="dashboard-item">
                                     <div className="thumb">
                                         <img src="http://localhost:5000/assets/images/dashboard/03.png" alt="dashboard" />
@@ -117,96 +120,10 @@ useEffect(() =>{
                                         <h6 className="info">Favorites</h6>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
-                    <div className="dashboard-widget">
-                        <h5 className="title mb-10">Purchasing</h5>
-                        <div className="dashboard-purchasing-tabs">
-                            <ul className="nav-tabs nav">
-                                <li>
-                                    <Link to="#current" className="active" data-toggle="tab">Current</Link>
-                                </li>
-                                <li>
-                                    <Link to="#pending" data-toggle="tab">Pending</Link>
-                                </li>
-                                <li>
-                                    <Link to="#history" data-toggle="tab">History</Link>
-                                </li>
-                            </ul>
-                            <div className="tab-content">
-                                <div className="tab-pane show active fade" id="current">
-                                    <table className="purchasing-table">
-                                        <thead>
-                                            <tr>
-                                            <th>Item</th>
-                                            <th>Bid Price</th>
-                                            <th>Highest Bid</th>
-                                            <th>Lowest Bid</th>
-                                            <th>Expires</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2024</td>
-                                            </tr>
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div className="tab-pane show fade" id="pending">
-                                    <table className="purchasing-table">
-                                        <thead>
-                                            <tr>
-                                            <th>Item</th>
-                                            <th>Bid Price</th>
-                                            <th>Highest Bid</th>
-                                            <th>Lowest Bid</th>
-                                            <th>Expires</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2024</td>
-                                            </tr>
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div className="tab-pane show fade" id="history">
-                                    <table className="purchasing-table">
-                                        <thead>
-                                            <tr>
-                                            <th>Item</th>
-                                            <th>Bid Price</th>
-                                            <th>Highest Bid</th>
-                                            <th>Lowest Bid</th>
-                                            <th>Expires</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2024</td>
-                                            </tr>
-                                          
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
