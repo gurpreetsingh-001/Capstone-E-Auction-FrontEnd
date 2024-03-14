@@ -94,7 +94,7 @@ useEffect(() =>{
                                         <img src="http://localhost:5000/assets/images/dashboard/01.png" alt="dashboard" />
                                     </div>
                                     <div className="content">
-                                        <h2 className="title"><span className="counter">{alldetails.ActiveBids}</span></h2>
+                                        <h2 className="title">{alldetails.ActiveBids}</h2>
                                         <h6 className="info">Bids Placed</h6>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@ useEffect(() =>{
                                         <img src="http://localhost:5000/assets/images/dashboard/02.png" alt="dashboard" />
                                     </div>
                                     <div className="content">
-                                        <h2 className="title"><span className="counter">{alldetails.Wonbids}</span></h2>
+                                        <h2 className="title">{alldetails.Wonbids}</h2>
                                         <h6 className="info">Won Bids</h6>
                                     </div>
                                 </div>

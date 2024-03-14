@@ -33,6 +33,7 @@ export default function SidebarDashboard() {
 
   
   async function handlefile(event) {
+    
     console.log("abc");
     const token = localStorage.getItem("token");
 
@@ -56,7 +57,7 @@ export default function SidebarDashboard() {
         navigate('/signin')
       }
 
-      navigate('/dashboard')
+      window.location.reload()
     }
   }
   return (
@@ -70,7 +71,7 @@ export default function SidebarDashboard() {
               </div>
 
               <label htmlFor="profile-pic" className="profile-pic-edit"><i className="flaticon-pencil"></i></label>
-              <input type="file" id="profile-pic" className="d-none" name="profilepic" onClick={handlefile} />
+              <input type="file" id="profile-pic" className="d-none" name="profilepic" onChange={handlefile} />
             </div>
             <div className="content">
               <h5 className="title"><Link to="#0">{userDetails.username}</Link></h5>
