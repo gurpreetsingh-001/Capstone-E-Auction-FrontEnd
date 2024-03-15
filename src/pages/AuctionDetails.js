@@ -45,7 +45,7 @@ export default function AuctionDetails() {
         fetchdata();
     }, [])
 
-    console.log(allAuctions);
+    //console.log(wonAuctions);
 
     async function handlePay(amount, id,product) {
         const stripe = await loadStripe(
@@ -133,10 +133,17 @@ export default function AuctionDetails() {
                                                             <td data-purchase="item">{ele.productid.productname}</td>
                                                             <td data-purchase="bid price">₹ {ele.bids[0].bidAmount}</td>
                                                             <td data-purchase="bid price">{moment(ele.bids[0].bidDateTime).format("MMM Do YYYY")} </td>
+
                                                             <td data-purchase="bid price">{moment(ele.bids[0].bidDateTime).format('LTS')}</td>
 
-
-                                                            <td data-purchase="expires" onClick={() => handlePay(ele.bids[0].bidAmount, ele._id,ele.productid.productname)}><button>PayNow</button></td>
+                                                            <td data-purchase="expires" onClick={() => handlePay(ele.bids[0].bidAmount, ele._id, ele.productid.productname)}>
+  {ele.payment ? (
+    <span>Paid</span>
+  ) : (
+    <button className='custom-button'>Pay Now</button>
+  )}
+</td>
+                                                            {/* <td data-purchase="expires" onClick={() => handlePay(ele.bids[0].bidAmount, ele._id,ele.productid.productname)}><button>PayNow</button></td> */}
                                                         </tr>
                                                     ))}
                                                 </tbody>

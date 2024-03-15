@@ -15,24 +15,7 @@ export default function DashboardPage() {
  const [userDetails, setuserDetails] = useState({})
  const [alldetails, setallDetails] = useState({})
  
-//  useEffect( async() => {
-//   const token = localStorage.getItem("token");
-  
-//   if(!token)
-//   {
-//     navigate('/signin')
-//   }
 
-//   const response  =await axios.get(`${API}/dashboard/`,{
-//     headers:{"Authorization":token}
-//   })
-//   if(response.status!=200)
-//   {
-//     navigate('/signin')
-//   }
-//   setuserDetails(response.data.user)
-//   return () => {}
-//   }, [])
 useEffect(() =>{
    async function fetchdata(){
     const token = localStorage.getItem("token");

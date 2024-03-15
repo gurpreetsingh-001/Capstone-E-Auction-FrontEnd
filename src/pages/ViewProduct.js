@@ -80,7 +80,7 @@ export default function ViewProduct() {
                                 <div className="dash-bid-item dashboard-widget mb-4">
                                     <div className="header">
                                         <h4 className="title">View Products</h4>
-                                        <span className="notify"><i className="flaticon-alarm"></i> Manage Notifications</span>
+                                        {/* <span className="notify"><i className="flaticon-alarm"></i> Manage Notifications</span> */}
                                     </div>
 
                                 </div>

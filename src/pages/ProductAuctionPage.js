@@ -3,7 +3,7 @@ import API from '../connection/connection';
 import axios from 'axios';
 import Header from '../components/Header'
 import moment from 'moment/moment';
-import { Link, useNavigate, useLocation, useParams } from 'react-router-dom'
+import { Link, useNavigate, useLocation, useParams, useAsyncError } from 'react-router-dom'
 import io from 'socket.io-client';
 const socket = io('http://localhost:5000')
 
@@ -18,6 +18,7 @@ export default function ProductAuctionPage() {
     const [userauctiondetails, setuserAuctionDetails] = useState([]);
     const [displaydatas, setDisplayData] = useState({});
     const[updated,setUpdated]=useState(false);
+    const[msg,setmsg]=useState("");
     useEffect(() => {
         async function fetchdata() {
             const token = localStorage.getItem("token");
@@ -63,21 +64,27 @@ export default function ProductAuctionPage() {
     async function submitBid(event) {
         event.preventDefault()
       //  console.log(`${API}/auction/${id}`);
-      if(AuctionBiddata.bidAmount<productdetail.minbid)
-      {
-        alert("Entered AMount is less then min bid amount");
-        return
-      }
+
+      console.log(AuctionBiddata.bidAmount);
+      console.log(productdetail.minbid);
+    //   if(AuctionBiddata.bidAmount < productdetail.minbid)
+    //   {
+    //     alert("Entered Amount is less then min bid amount");
+    //     return
+    //   }
         const response = await axios.post(`${API}/auction/${id}`, AuctionBiddata, {
             headers: {
                 Authorization: token,
             }
         })
-        console.log(response);
+      //  console.log(response);
+        setmsg(response.data.message)
+       // console.log();
         if (response.status === 201) {
 
             //window.alert("Bid Successfully Submitted")
             socket.emit("BidAdded")
+            
             // console.log("workingfine")
             //navigate('/')
         }
@@ -105,7 +112,7 @@ export default function ProductAuctionPage() {
                 setuserAuctionDetails(response.data.usersDetails)
                 setDisplayData(response.data.displaydata)
                 console.log(response.data.displaydata);
-                console.log(response.data);
+               
 
             }
 
@@ -190,6 +197,10 @@ export default function ProductAuctionPage() {
                                         <input type="text" name="bidAmount" placeholder="Enter you bid amount" onChange={handleChange} />
                                         <button type="submit" className="custom-button" onClick={submitBid}>Submit a bid</button>
                                     </form>
+
+                                    <span>{msg}</span>
+
+
                                 </div>
 
                             </div>
