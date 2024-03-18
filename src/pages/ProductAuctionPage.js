@@ -67,11 +67,11 @@ export default function ProductAuctionPage() {
 
       console.log(AuctionBiddata.bidAmount);
       console.log(productdetail.minbid);
-    //   if(AuctionBiddata.bidAmount < productdetail.minbid)
-    //   {
-    //     alert("Entered Amount is less then min bid amount");
-    //     return
-    //   }
+      if(AuctionBiddata.bidAmount < productdetail.minbid)
+      {
+        alert("Entered Amount is less then min bid amount");
+        return
+      }
         const response = await axios.post(`${API}/auction/${id}`, AuctionBiddata, {
             headers: {
                 Authorization: token,

@@ -17,6 +17,7 @@ export default function AuctionDetails() {
     const [allAuctions, setAllAuctions] = useState([]);
     const [wonAuctions, setWonAuctions] = useState([]);
 
+
     const [userDetails, setuserDetails] = useState({})
     const token = localStorage.getItem("token");
     useEffect(() => {
@@ -34,7 +35,8 @@ export default function AuctionDetails() {
                 }
                 setAllAuctions(response.data.UserAuctionDetails)
                 setWonAuctions(response.data.WonAuctions)
-                // console.log(response.data.UserAuctionDetails[0].status);
+
+                setuserDetails(response.data.user);
 
 
 
@@ -47,19 +49,19 @@ export default function AuctionDetails() {
 
     //console.log(wonAuctions);
 
-    async function handlePay(amount, id,product) {
+    async function handlePay(amount, id, product) {
         const stripe = await loadStripe(
             "pk_test_51Oool4SIiKMrNAex7ioOIyx1ahoCol5DJr6SLitld717QDOafCIBEcQZiEFNpXbNloPuoVUYaHPObV1VrlajDpnG000WYrr8jJ"
         );
         const body = {
             id, //product id
-            amount , // amount
+            amount, // amount
             product,
         }
         console.log(body);
         const headers = {
             "Content-type": "application/json",
-            "Authorization":token
+            "Authorization": token
         }
         const response = await fetch(
             "http://localhost:5000/api/place-order-session", {
@@ -136,13 +138,13 @@ export default function AuctionDetails() {
 
                                                             <td data-purchase="bid price">{moment(ele.bids[0].bidDateTime).format('LTS')}</td>
 
-                                                            <td data-purchase="expires" onClick={() => handlePay(ele.bids[0].bidAmount, ele._id, ele.productid.productname)}>
-  {ele.payment ? (
-    <span>Paid</span>
-  ) : (
-    <button className='custom-button'>Pay Now</button>
-  )}
-</td>
+                                                            <td data-purchase="expires" >
+                                                                {ele.payment ? (
+                                                                    <span>Paid</span>
+                                                                ) : (
+                                                                    <button className='custom-button' onClick={() => handlePay(ele.bids[0].bidAmount, ele._id, ele.productid.productname)}>Pay Now</button>
+                                                                )}
+                                                            </td>
                                                             {/* <td data-purchase="expires" onClick={() => handlePay(ele.bids[0].bidAmount, ele._id,ele.productid.productname)}><button>PayNow</button></td> */}
                                                         </tr>
                                                     ))}
@@ -172,12 +174,12 @@ export default function AuctionDetails() {
                                                 <tbody>
                                                     {allAuctions?.map((ele) => (
                                                         <>
-
+                                                            {console.log(ele)}
                                                             <tr>
                                                                 <td >{ele.productid.productname}</td>
-                                                                <td >₹ {ele.bids[0].bidAmount}</td>
-                                                                <td >{moment(ele.bids[0].bidDateTime).format("MMM Do YYYY")} </td>
-                                                                <td >{moment(ele.bids[0].bidDateTime).format('LTS')}</td>
+                                                                <td >₹ {ele.bids.find((bid) => bid.userId == userDetails._id).bidAmount}</td>
+                                                                <td >{moment(ele.bids.find((bid) => bid.userId == userDetails._id).bidDateTime).format("MMM Do YYYY")} </td>
+                                                                <td >{moment(ele.bids.find((bid) => bid.userId == userDetails._id).bidDateTime).format('LTS')}</td>
                                                                 <td > {ele.status ? "True" : "False"}</td>
 
                                                             </tr>
