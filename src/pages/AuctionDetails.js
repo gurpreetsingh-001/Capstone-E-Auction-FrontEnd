@@ -138,7 +138,7 @@ export default function AuctionDetails() {
 
                                                             <td data-purchase="bid price">{moment(ele.bids[0].bidDateTime).format('LTS')}</td>
 
-                                                            <td data-purchase="expires" >
+                                                            <td data-purchase="expires"  onClick={() => handlePay(ele.bids[0].bidAmount, ele._id, ele.productid.productname)}>
                                                                 {ele.payment ? (
                                                                     <span>Paid</span>
                                                                 ) : (

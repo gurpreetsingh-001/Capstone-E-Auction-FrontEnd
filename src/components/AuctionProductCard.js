@@ -16,7 +16,8 @@ export default function AuctionProductCard({product}) {
     <div  className="col-sm-10 col-md-6">
                                     <div className="auction-item-2" data-aos="zoom-out-up" data-aos-duration="1000">
                                         <div className="auction-thumb">
-                                            <img src={`http://localhost:5000/products/${product.prdimg}`} alt="car" />
+                                            <img src={product.prdimg} alt="car" />
+                                            {/* <img src={`http://localhost:5000/products/${product.prdimg}`} alt="car" /> */}
                                             <Link to="#0" className="rating"><i className="far fa-star"></i></Link>
                                             <Link to="#0" className="bid"><i className="flaticon-auction"></i></Link>
                                         </div>
